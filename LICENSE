@@ -1,0 +1,37 @@
+AppDeploy Studio License 1.0
+
+Copyright (c) 2026 Jonathan Cassara
+Original project: https://github.com/Jonathancassara/AppDeployStudio
+
+Permission is granted to use, copy, modify, and redistribute AppDeploy Studio
+in source or executable form, including modified versions, subject to the
+conditions below. Use within a business or other organization is permitted.
+
+1. Free redistribution. You may redistribute original and modified versions
+   free of charge. You may not sell, rent, or license them for a fee, charge
+   for access to them, or condition their delivery on purchasing another
+   product or service, unless you have separate written permission from
+   Jonathan Cassara. You may charge for independent services, such as support
+   or training, when access to the software remains free and unconditional.
+
+2. Attribution. Keep this license and the copyright notice with every
+   redistributed copy. Credit Jonathan Cassara as the original author and
+   include the original project link in the About screen or, if there is no
+   About screen, in the accompanying documentation.
+
+3. Modifications. When redistributing a modified version, identify it as
+   modified and include a notice identifying who made the changes, when they
+   were made, and what changed. Keep the original author credit. Do not
+   imply that Jonathan Cassara endorses your version.
+
+This license covers AppDeploy Studio. Separate components, including the
+PSAppDeployToolkit templates downloaded from their publisher, retain their
+own licenses. This license places no conditions on the installer files
+you supply or on the deployment packages you generate with the software.
+Rights in third-party files within those packages remain subject to their
+respective terms.
+
+To the extent permitted by applicable law, the software is provided as is,
+without express or implied warranties. The author is not liable for damages
+arising from use of the software, except where liability cannot be excluded
+under applicable law.

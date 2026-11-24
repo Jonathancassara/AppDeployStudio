@@ -1,0 +1,101 @@
+Subtitle|Création de packages Windows pour SCCM et Intune|Windows packaging for SCCM and Intune|Pakiety Windows dla SCCM i Intune|Пакети Windows для SCCM та Intune
+InterfaceLanguage|Langue de l’interface|Interface language|Język interfejsu|Мова інтерфейсу
+AppTab|Application|Application|Aplikacja|Програма
+AppHeading|Identité de l’application|Application details|Dane aplikacji|Відомості про програму
+AppHint|Ces informations identifient le package et alimentent les dialogues et les journaux.|These details identify the package and appear in dialogs and logs.|Te dane identyfikują pakiet i pojawiają się w oknach dialogowych oraz dziennikach.|Ці дані ідентифікують пакет і відображаються у вікнах та журналах.
+AppName|Nom de l’application *|Application name *|Nazwa aplikacji *|Назва програми *
+Vendor|Éditeur|Publisher|Wydawca|Видавець
+Version|Version|Version|Wersja|Версія
+Architecture|Architecture|Architecture|Architektura|Архітектура
+Unspecified|Non précisée|Unspecified|Nieokreślona|Не вказано
+PackageLanguage|Langue du package|Package language|Język pakietu|Мова пакета
+MoreDetails|Métadonnées supplémentaires|Additional metadata|Dodatkowe metadane|Додаткові метадані
+Author|Auteur du package|Package author|Autor pakietu|Автор пакета
+DialogTitle|Titre personnalisé des dialogues|Custom dialog title|Własny tytuł okien dialogowych|Власний заголовок вікон
+Revision|Révision|Revision|Rewizja|Ревізія
+ActionsTab|Actions|Actions|Akcje|Дії
+ActionsHeading|Actions de déploiement|Deployment actions|Akcje wdrożenia|Дії розгортання
+ActionsHint|Pour un EXE, utilisez les arguments documentés par l’éditeur, y compris ceux du mode silencieux.|For an EXE, use the arguments documented by the publisher, including silent switches.|W przypadku EXE użyj argumentów opisanych przez wydawcę, w tym parametrów trybu cichego.|Для EXE використовуйте параметри, описані видавцем, зокрема для тихого режиму.
+Payload|Dossier de fichiers complémentaires|Additional files folder|Folder dodatkowych plików|Папка з додатковими файлами
+Browse|Parcourir…|Browse…|Przeglądaj…|Огляд…
+PayloadHint|Facultatif. Le contenu et les sous-dossiers seront copiés dans Files avec les installateurs choisis.|Optional. Contents and subfolders are copied to Files alongside the selected installers.|Opcjonalnie. Zawartość i podfoldery trafią do folderu Files wraz z instalatorami.|Необов’язково. Вміст і підпапки буде скопійовано до Files разом з інсталяторами.
+BehaviorTab|Comportement|Behavior|Zachowanie|Поведінка
+BehaviorHeading|Comportement du déploiement|Deployment behavior|Zachowanie podczas wdrożenia|Поведінка під час розгортання
+BehaviorHint|Configurez les dialogues, les applications à fermer et les codes de retour.|Configure dialogs, applications to close, and exit codes.|Skonfiguruj okna dialogowe, aplikacje do zamknięcia i kody zakończenia.|Налаштуйте діалогові вікна, програми для закриття та коди завершення.
+Mode|Mode dans les commandes générées|Mode for generated commands|Tryb w generowanych poleceniach|Режим у згенерованих командах
+Processes|Processus à fermer|Processes to close|Procesy do zamknięcia|Процеси для закриття
+ProcessesHint|Exemple : excel, winword|Example: excel, winword|Przykład: excel, winword|Наприклад: excel, winword
+SuccessCodes|Codes de succès|Success codes|Kody powodzenia|Коди успішного завершення
+DialogStyle|Style des dialogues|Dialog style|Styl okien dialogowych|Стиль діалогових вікон
+Deferrals|Reports d’installation autorisés (0 à 99)|Allowed installation deferrals (0–99)|Dozwolone odroczenia instalacji (0–99)|Дозволені відкладення інсталяції (0–99)
+RebootCodes|Codes de redémarrage|Reboot codes|Kody ponownego uruchomienia|Коди перезавантаження
+Admin|Exiger des droits administrateur pour le déploiement|Require administrator rights for deployment|Wymagaj uprawnień administratora do wdrożenia|Вимагати права адміністратора для розгортання
+Progress|Inclure le dialogue de progression|Show a progress dialog|Pokaż okno postępu|Показувати вікно перебігу
+Suppress|Supprimer le renvoi du code 3010 dans les commandes générées|Suppress exit code 3010 in generated commands|Pomiń zwracanie kodu 3010 w generowanych poleceniach|Не повертати код 3010 у згенерованих командах
+ExportTab|Export|Export|Eksport|Експорт
+ExportHeading|Exporter le package|Export the package|Eksport pakietu|Експорт пакета
+ExportHint|Choisissez un nouveau dossier. L’export assemble le package sans lancer de déploiement.|Choose a new folder. Export assembles the package without running a deployment.|Wybierz nowy folder. Eksport tworzy pakiet bez uruchamiania wdrożenia.|Виберіть нову папку. Експорт збирає пакет без запуску розгортання.
+Destination|Dossier de sortie *|Output folder *|Folder docelowy *|Папка виведення *
+BrowseParent|Choisir le dossier parent…|Choose parent folder…|Wybierz folder nadrzędny…|Вибрати батьківську папку…
+Commands|Commandes de déploiement|Deployment commands|Polecenia wdrożenia|Команди розгортання
+CommandsHint|À exécuter depuis le dossier du package.|Run from the package folder.|Uruchom z folderu pakietu.|Запускайте з папки пакета.
+PreviewHeading|Aperçu du script Invoke-AppDeployToolkit.ps1|Invoke-AppDeployToolkit.ps1 preview|Podgląd Invoke-AppDeployToolkit.ps1|Перегляд Invoke-AppDeployToolkit.ps1
+Copy|Copier|Copy|Kopiuj|Копіювати
+OpenFolder|Ouvrir le dossier|Open folder|Otwórz folder|Відкрити папку
+Preview|Prévisualiser|Preview|Podgląd|Перегляд
+Generate|Générer le package|Build package|Utwórz pakiet|Створити пакет
+StartHint|Renseignez l’application et son action d’installation.|Enter the application details and configure its install action.|Wpisz dane aplikacji i skonfiguruj akcję instalacji.|Введіть відомості про програму й налаштуйте дію інсталяції.
+Install|Installation|Install|Instalacja|Інсталяція
+Uninstall|Désinstallation|Uninstall|Dezinstalacja|Видалення
+Repair|Réparation|Repair|Naprawa|Відновлення
+Disabled|Désactivée|Disabled|Wyłączona|Вимкнено
+ProductCode|Code produit MSI|MSI product code|Kod produktu MSI|Код продукту MSI
+ProductGuid|Code produit MSI (GUID)|MSI product code (GUID)|Kod produktu MSI (GUID)|Код продукту MSI (GUID)
+ActionType|Type d’action|Action type|Typ akcji|Тип дії
+ActionFile|Fichier à inclure dans le package|File to include in the package|Plik dołączany do pakietu|Файл для включення до пакета
+ExeArgs|Arguments de l’exécutable (facultatif)|Executable arguments (optional)|Argumenty EXE (opcjonalnie)|Параметри EXE (необов’язково)
+MsiArgs|Arguments MSI supplémentaires (facultatif)|Additional MSI arguments (optional)|Dodatkowe argumenty MSI (opcjonalnie)|Додаткові параметри MSI (необов’язково)
+PickFolder|Sélectionnez le dossier qui recevra le nouveau package.|Select the parent folder for the new package.|Wybierz folder nadrzędny dla nowego pakietu.|Виберіть батьківську папку для нового пакета.
+PickPayload|Sélectionnez le dossier des fichiers à ajouter dans Files.|Select the folder containing files to add to Files.|Wybierz folder z plikami do dodania do Files.|Виберіть папку з файлами для додавання до Files.
+Copied|Commandes copiées.|Commands copied.|Skopiowano polecenia.|Команди скопійовано.
+EmptyPreview|Cliquez sur Prévisualiser pour afficher le script généré.|Click Preview to see the generated script.|Kliknij Podgląd, aby zobaczyć wygenerowany skrypt.|Натисніть «Перегляд», щоб побачити згенерований скрипт.
+StalePreview|Configuration modifiée. Actualisez l’aperçu.|Configuration changed. Refresh the preview.|Konfiguracja została zmieniona. Odśwież podgląd.|Конфігурацію змінено. Оновіть попередній перегляд.
+Building|Assemblage du package…|Building package…|Tworzenie pakietu…|Створення пакета…
+Preparing|Préparation de l’aperçu…|Preparing preview…|Przygotowywanie podglądu…|Підготовка перегляду…
+Built|Package généré dans {0}|Package saved to {0}|Pakiet zapisano w {0}|Пакет збережено до {0}
+PreviewReady|Aperçu prêt. Fichiers à copier : {0}.|Preview ready. Files to copy: {0}.|Podgląd gotowy. Pliki do skopiowania: {0}.|Перегляд готовий. Файлів для копіювання: {0}.
+InvalidDeferrals|Indiquez un nombre de reports compris entre 0 et 99.|Enter a number of deferrals from 0 to 99.|Wpisz liczbę odroczeń od 0 do 99.|Введіть кількість відкладень від 0 до 99.
+MissingName|Renseignez le nom de l’application.|Enter the application name.|Wpisz nazwę aplikacji.|Введіть назву програми.
+MissingOutput|Indiquez le dossier de sortie du package.|Enter an output folder for the package.|Podaj folder docelowy pakietu.|Укажіть папку виведення пакета.
+OutputExists|Choisissez un nouveau dossier de sortie. Ce chemin existe déjà.|Choose a new output folder. This path already exists.|Wybierz nowy folder docelowy. Ta ścieżka już istnieje.|Виберіть нову папку виведення. Цей шлях уже існує.
+MissingPayload|Le dossier de fichiers complémentaires est introuvable.|The additional files folder was not found.|Nie znaleziono folderu dodatkowych plików.|Папку з додатковими файлами не знайдено.
+NestedOutput|Placez le package en dehors du dossier de fichiers complémentaires.|Place the package outside the additional files folder.|Umieść pakiet poza folderem dodatkowych plików.|Розмістіть пакет за межами папки з додатковими файлами.
+InvalidProcesses|Indiquez les noms des processus à fermer, séparés par des virgules.|Enter process names separated by commas.|Wpisz nazwy procesów oddzielone przecinkami.|Введіть назви процесів, розділені комами.
+InvalidPath|Utilisez un chemin Windows absolu.\n{0}|Use an absolute Windows path.\n{0}|Użyj bezwzględnej ścieżki systemu Windows.\n{0}|Використовуйте абсолютний шлях Windows.\n{0}
+LinkedFile|Sélectionnez le fichier ou dossier réel. Les liens et jonctions sont ignorés.\n{0}|Select the actual file or folder. Links and junctions cannot be copied.\n{0}|Wybierz rzeczywisty plik lub folder. Nie można kopiować dowiązań ani punktów połączeń.\n{0}|Виберіть справжній файл або папку. Посилання й точки з’єднання не копіюються.\n{0}
+DuplicateFile|Deux fichiers différents occupent le même chemin dans Files.\n{0}|Two different files would use the same path in Files.\n{0}|Dwa różne pliki miałyby tę samą ścieżkę w Files.\n{0}|Два різні файли матимуть однаковий шлях у Files.\n{0}
+InvalidGuid|Saisissez un GUID de produit MSI valide pour l’action « {0} ».|Enter a valid MSI product GUID for the “{0}” action.|Podaj prawidłowy identyfikator GUID produktu MSI dla akcji „{0}”.|Введіть дійсний GUID продукту MSI для дії «{0}».
+MissingActionFile|Sélectionnez le fichier {0} pour l’action « {1} ».|Select the {0} file for the “{1}” action.|Wybierz plik {0} dla akcji „{1}”.|Виберіть файл {0} для дії «{1}».
+InvalidActionFile|Le fichier {0} pour l’action « {1} » est introuvable ou incorrect.\n{2}|The {0} file for the “{1}” action is missing or invalid.\n{2}|Brak pliku {0} dla akcji „{1}” lub jest on nieprawidłowy.\n{2}|Файл {0} для дії «{1}» не знайдено або він недійсний.\n{2}
+InvalidCodes|{0} — indiquez des entiers séparés par des virgules.|{0} — enter integers separated by commas.|{0} — podaj liczby całkowite oddzielone przecinkami.|{0} — введіть цілі числа, розділені комами.
+MissingCodes|{0} — indiquez au moins un code de retour.|{0} — enter at least one exit code.|{0} — podaj co najmniej jeden kod zakończenia.|{0} — введіть принаймні один код завершення.
+TemplateField|Champ inattendu dans la template : {0}|Unexpected template field: {0}|Nieoczekiwane pole w szablonie: {0}|Неочікуване поле шаблону: {0}
+TemplateSection|Section introuvable dans la template : {0}|Template section not found: {0}|Nie znaleziono sekcji w szablonie: {0}|Розділ шаблону не знайдено: {0}
+TemplatesTab|Templates|Templates|Szablony|Шаблони
+TemplatesHeading|Templates PSAppDeployToolkit|PSAppDeployToolkit templates|Szablony PSAppDeployToolkit|Шаблони PSAppDeployToolkit
+TemplatesHint|Téléchargez les archives officielles depuis GitHub. Le générateur récupère la template V4 4.1.8 au premier aperçu ou export si elle est absente.|Download official archives from GitHub. The builder fetches V4 4.1.8 on the first preview or export if unavailable locally.|Pobierz oficjalne archiwa z GitHuba. Generator pobierze szablon V4 4.1.8 przy pierwszym podglądzie lub eksporcie, jeśli nie ma go lokalnie.|Завантажуйте офіційні архіви з GitHub. Якщо шаблону V4 4.1.8 немає локально, генератор завантажить його під час першого перегляду або експорту.
+SelectTemplate|Version et format|Version and format|Wersja i format|Версія й формат
+Download|Télécharger…|Download…|Pobierz…|Завантажити…
+ReleaseNotes|Notes de version ↗|Release notes ↗|Informacje o wersji ↗|Примітки до випуску ↗
+OtherVersions|Autres versions sur GitHub ↗|Other versions on GitHub ↗|Inne wersje na GitHubie ↗|Інші версії на GitHub ↗
+BuilderTemplate|Version utilisée par le générateur|Version used by the builder|Wersja używana przez generator|Версія, яку використовує генератор
+Stable|Version stable|Stable release|Wersja stabilna|Стабільний випуск
+PreviewRelease|Préversion|Pre-release|Wersja przedpremierowa|Попередній випуск
+Downloading|Téléchargement de {0}…|Downloading {0}…|Pobieranie {0}…|Завантаження {0}…
+Downloaded|Archive enregistrée dans {0}|Archive saved to {0}|Archiwum zapisano w {0}|Архів збережено до {0}
+DownloadError|Téléchargement impossible. Ouvrez la page GitHub pour réessayer.\n{0}|Download failed. Open the GitHub release page to try again.\n{0}|Pobieranie nie powiodło się. Otwórz stronę wydania na GitHubie i spróbuj ponownie.\n{0}|Не вдалося завантажити архів. Повторіть спробу на сторінці випуску GitHub.\n{0}
+ChecksumError|L’empreinte SHA-256 de l’archive ne correspond pas à la valeur attendue.|The archive’s SHA-256 checksum does not match the expected value.|Suma SHA-256 archiwum nie odpowiada oczekiwanej wartości.|Контрольна сума SHA-256 архіву не відповідає очікуваному значенню.
+About|À propos|About|Informacje|Про програму
+ProjectGitHub|Dépôt du projet ↗|Project repository ↗|Repozytorium projektu ↗|Репозиторій проєкту ↗
+StudioAuthor|Auteur d’AppDeploy Studio|AppDeploy Studio author|Autor AppDeploy Studio|Автор AppDeploy Studio
+AboutToolkit|Le générateur utilise la template V4 du projet PSAppDeployToolkit.|The builder uses the V4 template from the PSAppDeployToolkit project.|Generator używa szablonu V4 projektu PSAppDeployToolkit.|Генератор використовує шаблон V4 проєкту PSAppDeployToolkit.

@@ -1,0 +1,298 @@
+<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="AppDeploy Studio" Width="1100" Height="780" MinWidth="850" MinHeight="590"
+        WindowStartupLocation="CenterScreen" Background="#F3F6FA"
+        FontFamily="Segoe UI" FontSize="14" Foreground="#15263C"
+        UseLayoutRounding="True" SnapsToDevicePixels="True">
+    <Window.Resources>
+        <SolidColorBrush x:Key="Ink" Color="#15263C"/>
+        <SolidColorBrush x:Key="Muted" Color="#4D6078"/>
+        <SolidColorBrush x:Key="Line" Color="#D1DAE5"/>
+        <SolidColorBrush x:Key="Blue" Color="#1758C8"/>
+        <Style TargetType="TextBlock">
+            <Setter Property="TextWrapping" Value="Wrap"/>
+        </Style>
+        <Style x:Key="Heading" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="27"/><Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Foreground" Value="{StaticResource Ink}"/>
+        </Style>
+        <Style x:Key="Hint" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="{StaticResource Muted}"/>
+            <Setter Property="Margin" Value="0,5,0,17"/>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Margin" Value="0,0,0,5"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Foreground" Value="{StaticResource Ink}"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="MinHeight" Value="36"/><Setter Property="Padding" Value="9,5"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Line}"/>
+            <Setter Property="Foreground" Value="{StaticResource Ink}"/>
+            <Setter Property="Margin" Value="0,0,0,14"/>
+        </Style>
+        <Style TargetType="ComboBox">
+            <Setter Property="MinHeight" Value="36"/><Setter Property="Padding" Value="8,4"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="0,0,0,14"/>
+        </Style>
+        <Style TargetType="CheckBox">
+            <Setter Property="Margin" Value="0,1,0,11"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="MinHeight" Value="36"/><Setter Property="Padding" Value="13,5"/>
+            <Setter Property="Background" Value="White"/><Setter Property="Foreground" Value="{StaticResource Ink}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Line}"/><Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="Face" CornerRadius="6" Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
+                                Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True"><Setter TargetName="Face" Property="Opacity" Value=".8"/></Trigger>
+                            <Trigger Property="IsPressed" Value="True"><Setter TargetName="Face" Property="Opacity" Value=".65"/></Trigger>
+                            <Trigger Property="IsEnabled" Value="False"><Setter TargetName="Face" Property="Opacity" Value=".45"/></Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="Primary" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+            <Setter Property="Background" Value="{StaticResource Blue}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Blue}"/>
+            <Setter Property="Foreground" Value="White"/><Setter Property="FontWeight" Value="SemiBold"/>
+        </Style>
+        <Style TargetType="TabItem">
+            <Setter Property="Foreground" Value="{StaticResource Muted}"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Padding" Value="18,10"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TabItem">
+                        <Border x:Name="Tab" Background="Transparent" BorderBrush="Transparent" BorderThickness="0,0,0,3"
+                                Padding="{TemplateBinding Padding}">
+                            <ContentPresenter ContentSource="Header" RecognizesAccessKey="True"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter TargetName="Tab" Property="BorderBrush" Value="{StaticResource Blue}"/>
+                                <Setter TargetName="Tab" Property="Background" Value="#EAF1FE"/>
+                                <Setter Property="Foreground" Value="{StaticResource Blue}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Foreground" Value="{StaticResource Blue}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="PathButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+            <Setter Property="Margin" Value="8,0,0,14"/>
+        </Style>
+        <Style x:Key="Code" TargetType="TextBox" BasedOn="{StaticResource {x:Type TextBox}}">
+            <Setter Property="FontFamily" Value="Consolas"/><Setter Property="FontSize" Value="13"/>
+            <Setter Property="IsReadOnly" Value="True"/><Setter Property="VerticalContentAlignment" Value="Top"/>
+            <Setter Property="Background" Value="#F5F7FB"/><Setter Property="Padding" Value="11"/>
+            <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="HorizontalScrollBarVisibility" Value="Auto"/>
+        </Style>
+    </Window.Resources>
+    <Grid Background="#F3F6FA">
+        <Grid.RowDefinitions><RowDefinition Height="103"/><RowDefinition/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
+        <Border Background="#11253E" Grid.Row="0">
+            <DockPanel Margin="30,0">
+                <StackPanel DockPanel.Dock="Right" VerticalAlignment="Center" MinWidth="155">
+                    <Label Target="{Binding ElementName=InterfaceLanguage}" Content="{DynamicResource L_InterfaceLanguage}" Foreground="#DCE9FE" FontSize="12"/>
+                    <ComboBox x:Name="InterfaceLanguage" Margin="0" AutomationProperties.AutomationId="InterfaceLanguage">
+                        <ComboBoxItem Content="Français (FR)"/>
+                        <ComboBoxItem Content="English (EN)"/>
+                        <ComboBoxItem Content="Polski (PL)"/>
+                        <ComboBoxItem Content="Українська (UK)"/>
+                    </ComboBox>
+                </StackPanel>
+                <Image x:Name="BrandIcon" DockPanel.Dock="Left" Width="53" Height="53" Margin="0,0,17,0" VerticalAlignment="Center"/>
+                <StackPanel VerticalAlignment="Center">
+                    <TextBlock Text="AppDeploy Studio" FontSize="30" FontWeight="SemiBold" Foreground="White"/>
+                    <TextBlock Text="{DynamicResource L_Subtitle}" Foreground="#C5D5EA" Margin="0,3,0,0"/>
+                </StackPanel>
+            </DockPanel>
+        </Border>
+        <Border Grid.Row="1" Margin="26,21,26,17" Background="White" BorderBrush="{StaticResource Line}" BorderThickness="1" CornerRadius="9">
+            <TabControl x:Name="Pages" Background="White" BorderThickness="0" Padding="0" Margin="1,7,1,1">
+                <TabItem Header="{DynamicResource L_AppTab}">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <StackPanel Margin="26,19,26,12" MaxWidth="900" TextElement.Foreground="{StaticResource Ink}" TextElement.FontWeight="Normal">
+                            <TextBlock Style="{StaticResource Heading}" Text="{DynamicResource L_AppHeading}"/>
+                            <TextBlock Style="{StaticResource Hint}" Text="{DynamicResource L_AppHint}"/>
+                            <Label Target="{Binding ElementName=AppName}" Content="{DynamicResource L_AppName}"/>
+                            <TextBox x:Name="AppName"/>
+                            <Grid>
+                                <Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition Width="18"/><ColumnDefinition/></Grid.ColumnDefinitions>
+                                <StackPanel>
+                                    <Label Target="{Binding ElementName=Vendor}" Content="{DynamicResource L_Vendor}"/>
+                                    <TextBox x:Name="Vendor"/>
+                                    <Label Target="{Binding ElementName=Architecture}" Content="{DynamicResource L_Architecture}"/>
+                                    <ComboBox x:Name="Architecture" SelectedIndex="0">
+                                        <ComboBoxItem Content="{DynamicResource L_Unspecified}"/><ComboBoxItem Content="x64"/><ComboBoxItem Content="x86"/><ComboBoxItem Content="ARM64"/>
+                                    </ComboBox>
+                                </StackPanel>
+                                <StackPanel Grid.Column="2">
+                                    <Label Target="{Binding ElementName=Version}" Content="{DynamicResource L_Version}"/>
+                                    <TextBox x:Name="Version"/>
+                                    <Label Target="{Binding ElementName=Language}" Content="{DynamicResource L_PackageLanguage}"/>
+                                    <TextBox x:Name="Language" Text="EN"/>
+                                </StackPanel>
+                            </Grid>
+                            <Expander Header="{DynamicResource L_MoreDetails}" Margin="0,3,0,0">
+                                <Grid Margin="18,12,0,0">
+                                    <Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition Width="18"/><ColumnDefinition/></Grid.ColumnDefinitions>
+                                    <StackPanel>
+                                        <Label Target="{Binding ElementName=Author}" Content="{DynamicResource L_Author}"/>
+                                        <TextBox x:Name="Author"/>
+                                        <Label Target="{Binding ElementName=CustomTitle}" Content="{DynamicResource L_DialogTitle}"/>
+                                        <TextBox x:Name="CustomTitle"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="2">
+                                        <Label Target="{Binding ElementName=Revision}" Content="{DynamicResource L_Revision}"/>
+                                        <TextBox x:Name="Revision" Text="01"/>
+                                    </StackPanel>
+                                </Grid>
+                            </Expander>
+                        </StackPanel>
+                    </ScrollViewer>
+                </TabItem>
+                <TabItem Header="{DynamicResource L_ActionsTab}">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <StackPanel Margin="26,19,26,12" MaxWidth="900" TextElement.Foreground="{StaticResource Ink}" TextElement.FontWeight="Normal">
+                            <TextBlock Style="{StaticResource Heading}" Text="{DynamicResource L_ActionsHeading}"/>
+                            <TextBlock Style="{StaticResource Hint}" Text="{DynamicResource L_ActionsHint}"/>
+                            <StackPanel x:Name="ActionsHost"/>
+                            <Label Target="{Binding ElementName=Payload}" Content="{DynamicResource L_Payload}"/>
+                            <DockPanel>
+                                <Button DockPanel.Dock="Right" x:Name="BrowsePayload" Style="{StaticResource PathButton}" Content="{DynamicResource L_Browse}"/>
+                                <TextBox x:Name="Payload"/>
+                            </DockPanel>
+                            <TextBlock Style="{StaticResource Hint}" Margin="0,0,0,5" Text="{DynamicResource L_PayloadHint}"/>
+                        </StackPanel>
+                    </ScrollViewer>
+                </TabItem>
+                <TabItem Header="{DynamicResource L_BehaviorTab}">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <StackPanel Margin="26,19,26,12" MaxWidth="900" TextElement.Foreground="{StaticResource Ink}" TextElement.FontWeight="Normal">
+                            <TextBlock Style="{StaticResource Heading}" Text="{DynamicResource L_BehaviorHeading}"/>
+                            <TextBlock Style="{StaticResource Hint}" Text="{DynamicResource L_BehaviorHint}"/>
+                            <Grid>
+                                <Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition Width="18"/><ColumnDefinition/></Grid.ColumnDefinitions>
+                                <StackPanel>
+                                    <Label Target="{Binding ElementName=Mode}" Content="{DynamicResource L_Mode}"/>
+                                    <ComboBox x:Name="Mode" SelectedIndex="0">
+                                        <ComboBoxItem Content="Auto"/><ComboBoxItem Content="Silent"/><ComboBoxItem Content="Interactive"/><ComboBoxItem Content="NonInteractive"/>
+                                    </ComboBox>
+                                    <Label Target="{Binding ElementName=Processes}" Content="{DynamicResource L_Processes}"/>
+                                    <TextBox x:Name="Processes" ToolTip="{DynamicResource L_ProcessesHint}"/>
+                                    <Label Target="{Binding ElementName=Success}" Content="{DynamicResource L_SuccessCodes}"/>
+                                    <TextBox x:Name="Success" Text="0"/>
+                                </StackPanel>
+                                <StackPanel Grid.Column="2">
+                                    <Label Target="{Binding ElementName=DialogStyle}" Content="{DynamicResource L_DialogStyle}"/>
+                                    <ComboBox x:Name="DialogStyle" SelectedIndex="0"><ComboBoxItem Content="Fluent"/><ComboBoxItem Content="Classic"/></ComboBox>
+                                    <Label Target="{Binding ElementName=Deferrals}" Content="{DynamicResource L_Deferrals}"/>
+                                    <TextBox x:Name="Deferrals" Text="0" MaxLength="2"/>
+                                    <Label Target="{Binding ElementName=Reboot}" Content="{DynamicResource L_RebootCodes}"/>
+                                    <TextBox x:Name="Reboot" Text="1641, 3010"/>
+                                </StackPanel>
+                            </Grid>
+                            <CheckBox x:Name="RequireAdmin" IsChecked="True" Content="{DynamicResource L_Admin}"/>
+                            <CheckBox x:Name="Progress" IsChecked="True" Content="{DynamicResource L_Progress}"/>
+                            <CheckBox x:Name="Suppress" Content="{DynamicResource L_Suppress}"/>
+                        </StackPanel>
+                    </ScrollViewer>
+                </TabItem>
+                <TabItem Header="{DynamicResource L_ExportTab}">
+                    <Grid Margin="26,19,26,12" TextElement.Foreground="{StaticResource Ink}" TextElement.FontWeight="Normal">
+                        <Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition MinHeight="75"/></Grid.RowDefinitions>
+                        <TextBlock Style="{StaticResource Heading}" Text="{DynamicResource L_ExportHeading}"/>
+                        <TextBlock Grid.Row="1" Style="{StaticResource Hint}" Text="{DynamicResource L_ExportHint}"/>
+                        <Label Grid.Row="2" Target="{Binding ElementName=Destination}" Content="{DynamicResource L_Destination}"/>
+                        <DockPanel Grid.Row="3">
+                            <Button DockPanel.Dock="Right" x:Name="BrowseDestination" Style="{StaticResource PathButton}" Content="{DynamicResource L_BrowseParent}"/>
+                            <TextBox x:Name="Destination"/>
+                        </DockPanel>
+                        <DockPanel Grid.Row="4" Margin="0,0,0,8">
+                            <Button DockPanel.Dock="Right" x:Name="CopyCommands" MinHeight="27" Padding="9,2" Content="{DynamicResource L_Copy}" IsEnabled="False"/>
+                            <Label Target="{Binding ElementName=Commands}" VerticalAlignment="Center" Margin="0" Content="{DynamicResource L_Commands}"/>
+                        </DockPanel>
+                        <TextBox Grid.Row="5" x:Name="Commands" Style="{StaticResource Code}" Height="86" ToolTip="{DynamicResource L_CommandsHint}"/>
+                        <DockPanel Grid.Row="6">
+                            <Label DockPanel.Dock="Top" Target="{Binding ElementName=Preview}" Content="{DynamicResource L_PreviewHeading}"/>
+                            <TextBox x:Name="Preview" Style="{StaticResource Code}" Margin="0"/>
+                        </DockPanel>
+                    </Grid>
+                </TabItem>
+                <TabItem x:Name="TemplatesPage" Header="{DynamicResource L_TemplatesTab}">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <StackPanel Margin="26,19,26,16" MaxWidth="900" TextElement.Foreground="{StaticResource Ink}" TextElement.FontWeight="Normal">
+                            <TextBlock Style="{StaticResource Heading}" Text="{DynamicResource L_TemplatesHeading}"/>
+                            <TextBlock Style="{StaticResource Hint}" Text="{DynamicResource L_TemplatesHint}"/>
+                            <Border Background="#F5F8FC" BorderBrush="{StaticResource Line}" BorderThickness="1" CornerRadius="8" Padding="18">
+                                <StackPanel>
+                                    <Label Target="{Binding ElementName=TemplateVersion}" Content="{DynamicResource L_SelectTemplate}"/>
+                                    <ComboBox x:Name="TemplateVersion" AutomationProperties.AutomationId="TemplateVersion"/>
+                                    <TextBlock x:Name="TemplateDetails" Foreground="{StaticResource Muted}" Margin="0,0,0,15"/>
+                                    <WrapPanel>
+                                        <Button x:Name="DownloadTemplate" Style="{StaticResource Primary}" Content="{DynamicResource L_Download}" Margin="0,0,8,8"/>
+                                        <Button x:Name="ReleaseNotes" Content="{DynamicResource L_ReleaseNotes}" Margin="0,0,8,8"/>
+                                        <Button x:Name="OtherVersions" Content="{DynamicResource L_OtherVersions}" Margin="0,0,0,8"/>
+                                    </WrapPanel>
+                                    <ProgressBar x:Name="DownloadProgress" Height="5" IsIndeterminate="True" Visibility="Collapsed" Margin="0,5,0,5"/>
+                                    <TextBlock x:Name="DownloadStatus" Foreground="{StaticResource Muted}" Margin="0,4,0,0"/>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+                    </ScrollViewer>
+                </TabItem>
+                <TabItem x:Name="AboutPage" Header="{DynamicResource L_About}">
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <StackPanel Margin="26,19,26,16" MaxWidth="900" TextElement.Foreground="{StaticResource Ink}" TextElement.FontWeight="Normal">
+                            <TextBlock x:Name="StudioVersion" Style="{StaticResource Heading}" Margin="0,0,0,17"/>
+                            <Border Background="#F5F8FC" BorderBrush="{StaticResource Line}" BorderThickness="1" CornerRadius="8" Padding="18">
+                                <StackPanel>
+                                    <TextBlock Text="{DynamicResource L_StudioAuthor}" Foreground="{StaticResource Muted}"/>
+                                    <TextBlock x:Name="StudioAuthor" FontSize="21" FontWeight="SemiBold" Margin="0,3,0,11"/>
+                                    <WrapPanel>
+                                        <Button x:Name="AuthorGitHub" Style="{StaticResource Primary}" Margin="0,0,8,0"/>
+                                        <Button x:Name="ProjectGitHub" Content="{DynamicResource L_ProjectGitHub}"/>
+                                    </WrapPanel>
+                                </StackPanel>
+                            </Border>
+                            <StackPanel Margin="0,20,0,0">
+                                <TextBlock Text="{DynamicResource L_AboutToolkit}" Foreground="{StaticResource Muted}" Margin="0,0,0,8"/>
+                                <Button x:Name="ToolkitGitHub" Content="PSAppDeployToolkit 4.1.8 ↗" HorizontalAlignment="Left"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </ScrollViewer>
+                </TabItem>
+            </TabControl>
+        </Border>
+        <Border x:Name="PackageFooter" Grid.Row="2" Background="White" BorderBrush="{StaticResource Line}" BorderThickness="0,1,0,0" MinHeight="72">
+            <DockPanel Margin="26,0" LastChildFill="True">
+                <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" VerticalAlignment="Center" Margin="16,0,0,0">
+                    <Button x:Name="OpenOutput" Content="{DynamicResource L_OpenFolder}" Visibility="Collapsed" Margin="0,0,8,0"/>
+                    <Button x:Name="RefreshPreview" Content="{DynamicResource L_Preview}" Margin="0,0,8,0"/>
+                    <Button x:Name="Generate" Content="{DynamicResource L_Generate}" Style="{StaticResource Primary}"/>
+                </StackPanel>
+                <TextBlock x:Name="Status" VerticalAlignment="Center" Foreground="{StaticResource Muted}"
+                           Text="{DynamicResource L_StartHint}"/>
+            </DockPanel>
+        </Border>
+    </Grid>
+</Window>
